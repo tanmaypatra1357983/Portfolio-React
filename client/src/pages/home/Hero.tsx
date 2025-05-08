@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
@@ -67,7 +67,7 @@ const Hero = () => {
                 className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
                 aria-label="LeetCode"
               >
-                <Twitter className="h-6 w-6" />
+                <Code2 className="h-6 w-6" />
               </a>
             </div>
           </motion.div>
@@ -78,11 +78,14 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="w-full lg:w-1/2"
           >
-            <img
-              src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800&q=80"
-              alt="Professional developer workspace"
-              className="w-full h-auto max-w-xl mx-auto rounded-2xl shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500 border-8 border-white dark:border-gray-800"
-            />
+            <div className="relative flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent rounded-2xl blur-3xl opacity-30 animate-pulse"></div>
+              <img
+                src="https://images.unsplash.com/photo-1581472723648-909f4851d4ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800&q=80"
+                alt="Professional developer workspace"
+                className="relative w-full h-auto max-w-xl mx-auto rounded-2xl shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500 border-8 border-white dark:border-gray-800"
+              />
+            </div>
           </motion.div>
         </div>
       </div>
