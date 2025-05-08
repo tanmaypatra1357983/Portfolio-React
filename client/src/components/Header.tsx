@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentSection, setCurrentSection] = useState("home");
-  const { theme, setTheme } = useTheme();
+  const { theme, resolvedTheme, toggleTheme } = useTheme();
   const [location] = useLocation();
 
   // Handle scroll to update active navigation link
@@ -81,11 +81,11 @@ const Header = () => {
           
           {/* Theme Toggle */}
           <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
+            onClick={toggleTheme}
+            className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-primary/20 hover:text-primary transition-colors"
             aria-label="Toggle theme"
           >
-            {theme === "dark" ? (
+            {resolvedTheme === "dark" ? (
               <Sun className="h-5 w-5" />
             ) : (
               <Moon className="h-5 w-5" />
@@ -127,11 +127,11 @@ const Header = () => {
           <div className="flex items-center justify-between">
             <span className="text-gray-700 dark:text-gray-200">Theme</span>
             <button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200"
+              onClick={toggleTheme}
+              className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-primary/20 hover:text-primary transition-colors"
               aria-label="Toggle theme"
             >
-              {theme === "dark" ? (
+              {resolvedTheme === "dark" ? (
                 <Sun className="h-5 w-5" />
               ) : (
                 <Moon className="h-5 w-5" />
