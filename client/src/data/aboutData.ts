@@ -38,8 +38,8 @@ export const socialLinks = [
     iconType: "Mail",
   },
   {
-    name: "Instagram",
-    url: "https://instagram.com",
-    iconType: "instagram",
+    name: "LeetCode",
+    url: "https://leetcode.com/u/Tanmay_Patra/",
+    iconType: "coding-profile",
   },
 ];

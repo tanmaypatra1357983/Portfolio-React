@@ -6,8 +6,8 @@ export const projectsData = [
     image:
       "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
     technologies: ["JavaScript", "HTML/CSS", "Algorithms", "DSA"],
-    codeUrl: "https://github.com/yourusername/dsa-visualizer",
-    liveUrl: "https://yourdomain.com/dsa-visualizer",
+    codeUrl: "https://github.com/TanmayaPatra369/Sorting-Visualizer.git",
+    liveUrl: "https://steady-khapse-fdc88a.netlify.app",
   },
   {
     title: "Rainfall Prediction System",
@@ -15,8 +15,8 @@ export const projectsData = [
       "A machine learning model that predicts rainfall based on historical weather data and climatic features, helping in agriculture planning and disaster prevention.",
     image:
       "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
-    technologies: ["Python", "Scikit-learn", "Pandas", "ML", "Weather Data"],
-    codeUrl: "https://github.com/yourusername/rainfall-prediction",
+    technologies: ["Python", "Scikit-learn", "Pandas", "ML-Algo", "Weather Data"],
+    codeUrl: "https://github.com/TanmayaPatra369/RAINFALL_CSIR.git",
     liveUrl: "https://yourdomain.com/rainfall-prediction",
   },
   {
@@ -54,7 +54,7 @@ export const projectsData = [
     description:
       "A smart assistant powered by large language models that provides real-time answers, task automation, and content generation using LangChain and OpenAI APIs.",
     image:
-      "https://images.unsplash.com/photo-1677442135136-760c813a535f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+      "https://images.unsplash.com/photo-1579404415947-408916823e2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
     technologies: ["Python", "LangChain", "OpenAI", "NLP", "LLM"],
     codeUrl: "https://github.com/yourusername/llm-assistant",
     liveUrl: "",

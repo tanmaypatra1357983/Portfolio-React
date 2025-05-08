@@ -3,67 +3,67 @@ import { allTechnologies } from "@/data/technologiesData";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useParallaxScroll } from "@/hooks/use-parallax-scroll";
 
-const TechnologyCard = ({ 
-  name, 
-  index, 
-  isHighlighted
-}: { 
-  name: string; 
+const TechnologyCard = ({
+  name,
+  index,
+  isHighlighted,
+}: {
+  name: string;
   index: number;
   isHighlighted: boolean;
 }) => {
   // Lower threshold and set once to true to make it appear faster
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>({
     threshold: 0.01,
-    once: true
+    once: true,
   });
-  
+
   // Determine animation direction based on position in grid
   // Alternate between left and right for each row
   const row = Math.floor(index / 3);
   const isEvenRow = row % 2 === 0;
-  
+
   // For even rows: items slide from left, right, left
   // For odd rows: items slide from right, left, right
   const position = index % 3;
-  let direction: 'left' | 'right';
-  
+  let direction: "left" | "right";
+
   if (isEvenRow) {
-    direction = position === 1 ? 'right' : 'left';
+    direction = position === 1 ? "right" : "left";
   } else {
-    direction = position === 1 ? 'left' : 'right';
+    direction = position === 1 ? "left" : "right";
   }
-  
+
   const animationClass = `slide-in-from-${direction}`;
-  
+
   return (
     <div
       ref={ref}
       className={`relative overflow-hidden bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-6 rounded-xl shadow-lg flex items-center justify-center transform transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 hover:z-10 group ${
-        isVisible ? animationClass : 'opacity-0'
-      } ${
-        isHighlighted ? 'scale-105 shadow-xl shadow-primary/20 z-10' : ''
-      }`}
+        isVisible ? animationClass : "opacity-0"
+      } ${isHighlighted ? "scale-105 shadow-xl shadow-primary/20 z-10" : ""}`}
       style={{ animationDelay: `${index * 0.1}s` }}
     >
-      <span className="text-lg font-medium relative z-10 group-hover:text-primary transition-colors">{name}</span>
-      
+      <span className="text-lg font-medium relative z-10 group-hover:text-primary transition-colors">
+        {name}
+      </span>
+
       {/* Decorative background patterns */}
-      <div 
+      <div
         className={`absolute -top-10 -right-10 w-20 h-20 bg-primary/10 rounded-full blur-xl transition-opacity duration-300 ${
-          isHighlighted ? 'opacity-100' : 'opacity-0'
+          isHighlighted ? "opacity-100" : "opacity-0"
         } group-hover:opacity-100`}
       ></div>
-      <div 
+      <div
         className={`absolute -bottom-6 -left-6 w-12 h-12 bg-green-500/10 rounded-full blur-lg transition-opacity duration-300 ${
-          isHighlighted ? 'opacity-100' : 'opacity-0'
+          isHighlighted ? "opacity-100" : "opacity-0"
         } group-hover:opacity-100`}
       ></div>
-      
+
       {/* Bottom border shine effect */}
-      <div 
+      <div
         className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent w-full transform translate-x-full transition-transform duration-700 ${
-          isHighlighted ? 'animate-shine' : ''
+          isHighlighted ? "animate-shine" : ""
         } group-hover:animate-shine`}
       ></div>
     </div>
@@ -73,32 +73,33 @@ const TechnologyCard = ({
 const Technologies = () => {
   // Use parallax scroll for Apple-like effects
   useParallaxScroll();
-  
-  const { ref: sectionRef, isVisible: isSectionVisible } = useScrollAnimation<HTMLDivElement>({
-    threshold: 0.1,
-    once: true
-  });
-  
+
+  const { ref: sectionRef, isVisible: isSectionVisible } =
+    useScrollAnimation<HTMLDivElement>({
+      threshold: 0.1,
+      once: true,
+    });
+
   // Random highlight effect for cards
   const [highlightedIndex, setHighlightedIndex] = useState<number | null>(null);
-  
+
   useEffect(() => {
     if (!isSectionVisible) return;
-    
+
     // Create a timed interval to highlight different cards randomly
     const interval = setInterval(() => {
       const randomIndex = Math.floor(Math.random() * allTechnologies.length);
       setHighlightedIndex(randomIndex);
-      
+
       // Reset highlight after a short delay
       setTimeout(() => {
         setHighlightedIndex(null);
       }, 1200);
     }, 3000);
-    
+
     return () => clearInterval(interval);
   }, [isSectionVisible]);
-  
+
   return (
     <section
       id="technologies"
@@ -110,30 +111,31 @@ const Technologies = () => {
         <div className="absolute -top-20 -right-20 w-64 h-64 bg-emerald-500/30 dark:bg-primary/30 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-green-500/30 dark:bg-blue-500/30 rounded-full blur-3xl"></div>
       </div>
-      
+
       <div className="container mx-auto px-4 relative">
-        <div className="parallax-scroll parallax-slow">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center gradient-text heading-float animate-always-visible">
+        <div className="parallax-scroll">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center gradient-text heading-float">
             Technologies I Work With
           </h2>
-          
+
           <p className="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12 animate-always-visible">
-            My development skills and technologies that I have learnt or am learning.
+            My development skills and technologies that I have learnt or am
+            learning.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {allTechnologies.map((tech, index) => (
-            <TechnologyCard 
+            <TechnologyCard
               key={index}
-              name={tech} 
+              name={tech}
               index={index}
               isHighlighted={highlightedIndex === index}
             />
           ))}
         </div>
       </div>
-      
+
       <style>
         {`
           @keyframes shine {
