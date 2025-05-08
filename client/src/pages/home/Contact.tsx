@@ -145,17 +145,20 @@ const Contact = () => {
               <div className="flex space-x-6">
                 {socialLinks.map((link, index) => {
                   // Render the appropriate icon based on iconType
-                  let IconComponent;
-
-                  if (link.iconType === "github") {
-                    IconComponent = Github;
-                  } else if (link.iconType === "linkedin") {
-                    IconComponent = Linkedin;
-                  } else if (link.iconType === "coding-profile") {
-                    IconComponent = Code2;
-                  } else if (link.iconType === "instagram") {
-                    IconComponent = Instagram;
-                  }
+                  const getIcon = () => {
+                    if (link.iconType === "github") {
+                      return <Github />;
+                    } else if (link.iconType === "linkedin") {
+                      return <Linkedin />;
+                    } else if (link.iconType === "coding-profile") {
+                      return <Code2 />;
+                    } else if (link.iconType === "instagram") {
+                      return <Instagram />;
+                    } else if (link.iconType === "Mail") {
+                      return <Mail />;
+                    }
+                    return null;
+                  };
 
                   return (
                     <a
@@ -167,7 +170,7 @@ const Contact = () => {
                       aria-label={link.name}
                     >
                       <div className="h-6 w-6">
-                        {IconComponent && <IconComponent />}
+                        {getIcon()}
                       </div>
                     </a>
                   );
