@@ -1,66 +1,70 @@
-// Define technology categories
+// Define technology categories for organization
 export const technologyCategories = [
   {
-    category: "Languages",
-    technologies: [
-      { name: "JavaScript", level: "Advanced" },
-      { name: "TypeScript", level: "Advanced" },
-      { name: "Python", level: "Advanced" },
-      { name: "Java", level: "Intermediate" },
-      { name: "C", level: "Intermediate" }
-    ]
+    name: "Frontend",
+    description: "Technologies for building modern user interfaces"
   },
   {
-    category: "Frontend",
-    technologies: [
-      { name: "React", level: "Advanced" },
-      { name: "HTML/CSS", level: "Advanced" },
-      { name: "Tailwind CSS", level: "Advanced" },
-      { name: "Bootstrap", level: "Intermediate" }
-    ]
+    name: "Backend",
+    description: "Server-side technologies and frameworks"
   },
   {
-    category: "Backend",
-    technologies: [
-      { name: "Node.js", level: "Advanced" },
-      { name: "Express.js", level: "Advanced" },
-      { name: "MongoDB", level: "Intermediate" }
-    ]
+    name: "Machine Learning",
+    description: "Tools and libraries for ML and data science"
   },
   {
-    category: "Machine Learning",
-    technologies: [
-      { name: "TensorFlow", level: "Intermediate" },
-      { name: "Pandas", level: "Advanced" },
-      { name: "Data Analysis", level: "Advanced" }
-    ]
+    name: "DevOps",
+    description: "Technologies for deployment and infrastructure"
   },
   {
-    category: "Tools",
-    technologies: [
-      { name: "Git", level: "Advanced" },
-      { name: "VS Code", level: "Advanced" },
-      { name: "Docker", level: "Beginner" },
-      { name: "Figma", level: "Beginner" }
-    ]
+    name: "Mobile",
+    description: "Technologies for mobile app development"
   }
 ];
 
-// All technologies in a flat array for the cards display
+// Complete list of technologies to display in the Technologies section
 export const allTechnologies = [
-  "JavaScript",
-  "TypeScript",
+  // Frontend Technologies
   "React",
-  "Node.js",
-  "Python",
-  "TensorFlow",
-  "PostgreSQL",
-  "MongoDB",
-  "AWS",
-  "Docker",
-  "GraphQL",
+  "TypeScript",
+  "JavaScript",
+  "HTML5 & CSS3",
+  "Tailwind CSS",
   "Next.js",
-  "Git",
-  "Figma",
-  "Tailwind CSS"
+  "Redux",
+  "Framer Motion",
+  
+  // Backend Technologies
+  "Node.js",
+  "Express",
+  "Python",
+  "Django",
+  "MongoDB",
+  "PostgreSQL",
+  "GraphQL",
+  "RESTful APIs",
+  
+  // Machine Learning
+  "TensorFlow",
+  "PyTorch",
+  "Scikit-learn",
+  "Pandas",
+  "Numpy",
+  "Keras",
+  "Jupyter Notebook",
+  "NLTK",
+  
+  // DevOps
+  "Docker",
+  "Git & GitHub",
+  "AWS",
+  "CI/CD",
+  "Linux",
+  "Nginx",
+  
+  // Mobile & Other
+  "React Native",
+  "Firebase",
+  "Socket.io",
+  "WebSockets"
 ];

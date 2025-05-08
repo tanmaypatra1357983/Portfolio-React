@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { allTechnologies } from "@/data/technologiesData";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useParallaxScroll } from "@/hooks/use-parallax-scroll";
@@ -6,17 +6,15 @@ import { useParallaxScroll } from "@/hooks/use-parallax-scroll";
 const TechnologyCard = ({ 
   name, 
   index, 
-  totalItems,
   isHighlighted
 }: { 
   name: string; 
   index: number;
-  totalItems: number;
   isHighlighted: boolean;
 }) => {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>({
     threshold: 0.1,
-    once: false
+    once: true
   });
   
   // Determine animation direction based on position in grid
@@ -77,7 +75,7 @@ const Technologies = () => {
   
   const { ref: sectionRef, isVisible: isSectionVisible } = useScrollAnimation<HTMLDivElement>({
     threshold: 0.1,
-    once: false
+    once: true
   });
   
   // Random highlight effect for cards
@@ -133,7 +131,6 @@ const Technologies = () => {
               key={index}
               name={tech} 
               index={index}
-              totalItems={allTechnologies.length}
               isHighlighted={highlightedIndex === index}
             />
           ))}
