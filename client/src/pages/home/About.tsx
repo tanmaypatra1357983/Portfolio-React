@@ -439,9 +439,9 @@ const About = () => {
                     {[
                       "Web Development",
                       "Machine Learning",
-                      "UI/UX Design",
+                      "AWS (Cloud)",
                       "Data Science",
-                      "App Development",
+                      "software Project Management",
                     ].map((skill, i) => (
                       <span
                         key={i}
