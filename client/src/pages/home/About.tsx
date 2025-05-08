@@ -107,7 +107,7 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-white dark:to-gray-900 rounded-2xl blur-xl opacity-70 scale-105 animate-pulse-slow"></div>
               <div className="relative p-2 bg-white dark:bg-gray-800 rounded-2xl border-2 border-primary/30 shadow-2xl">
                 <img
-                  src="/assets/profile.png"
+                  src="/assets/profile.jpg"
                   alt="Tanmay Patra"
                   className="w-full h-auto rounded-xl shadow-inner mx-auto max-w-md bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900"
                 />
