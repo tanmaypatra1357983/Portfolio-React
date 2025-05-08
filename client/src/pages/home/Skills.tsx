@@ -5,9 +5,77 @@ import {
   Monitor, 
   Server, 
   BrainCircuit, 
-  Settings 
+  Settings,
+  ChevronRight
 } from "lucide-react";
 import { useScrollAnimation, useScrollCompression } from "@/hooks/use-scroll-animation";
+
+const SkillItem = ({ 
+  skill, 
+  index, 
+  isVisible,
+  animationDirection,
+  delay 
+}: { 
+  skill: { name: string; percentage: number }; 
+  index: number;
+  isVisible: boolean;
+  animationDirection: "left" | "right";
+  delay: number;
+}) => {
+  const progressRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    if (!progressRef.current) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              if (progressRef.current) {
+                progressRef.current.style.width = `${skill.percentage}%`;
+              }
+            }, index * 100 + delay * 1000);
+          } else {
+            if (progressRef.current) {
+              progressRef.current.style.width = "0%";
+            }
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    
+    observer.observe(progressRef.current);
+    
+    return () => {
+      if (progressRef.current) {
+        observer.unobserve(progressRef.current);
+      }
+    };
+  }, [skill.percentage, index, delay]);
+
+  return (
+    <div 
+      className={`skill-item ${isVisible ? `fade-in` : 'opacity-0'}`}
+      style={{ animationDelay: `${delay + index * 0.1}s` }}
+    >
+      <div className="flex items-center mb-1">
+        <ChevronRight className="h-4 w-4 text-primary mr-1" />
+        <span className="font-medium text-sm">{skill.name}</span>
+        <span className="text-primary text-xs font-medium ml-auto">{skill.percentage}%</span>
+      </div>
+      <div className="progress-bar bg-gray-200 dark:bg-gray-700 h-1.5">
+        <div 
+          ref={progressRef}
+          className="progress-bar-fill bg-primary" 
+          style={{ width: "0%" }}
+        ></div>
+      </div>
+    </div>
+  );
+};
 
 const SkillCategory = ({ 
   title, 
@@ -27,73 +95,28 @@ const SkillCategory = ({
     once: false
   });
 
-  // Animation for progress bars
-  const progressRefs = useRef<(HTMLDivElement | null)[]>([]);
-  
-  // Handle skill bar animation
-  const animateSkillBars = () => {
-    progressRefs.current.forEach((bar, index) => {
-      if (!bar) return;
-      
-      const position = bar.getBoundingClientRect();
-      const skill = skills[index];
-      
-      // Check if element is in viewport
-      if (position.top < window.innerHeight && position.bottom >= 0) {
-        // Add a small delay for each subsequent skill
-        const delay = index * 100;
-        setTimeout(() => {
-          bar.style.width = `${skill.percentage}%`;
-        }, delay);
-      } else {
-        bar.style.width = "0%";
-      }
-    });
-  };
-  
-  useEffect(() => {
-    // Initial animation
-    animateSkillBars();
-    
-    // Add scroll event listener
-    window.addEventListener("scroll", animateSkillBars);
-    
-    return () => {
-      window.removeEventListener("scroll", animateSkillBars);
-    };
-  }, []);
-
   return (
     <div
       ref={ref}
-      className={`transform transition-transform duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+      className={`transform transition-transform duration-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'} bg-white/50 dark:bg-gray-800/50 rounded-xl p-5 shadow-lg backdrop-blur-sm`}
     >
-      <h3 className={`text-2xl font-bold mb-8 flex items-center ${isVisible ? `slide-in-from-${animationDirection}` : 'opacity-0'}`}>
+      <h3 className={`text-xl font-bold mb-4 flex items-center ${isVisible ? `slide-in-from-${animationDirection}` : 'opacity-0'}`}>
         <span className="bg-primary/10 dark:bg-primary/20 p-2 rounded-full mr-3">
           {icon}
         </span>
         {title}
       </h3>
       
-      <div className="space-y-6">
+      <div className="grid grid-cols-1 gap-3">
         {skills.map((skill, index) => (
-          <div 
+          <SkillItem 
             key={index}
-            className={`skill-item ${isVisible ? 'fade-in' : 'opacity-0'}`}
-            style={{ animationDelay: `${staggerDelay + index * 0.1}s` }}
-          >
-            <div className="flex justify-between mb-2">
-              <span className="font-medium">{skill.name}</span>
-              <span className="text-primary dark:text-primary font-medium">{skill.percentage}%</span>
-            </div>
-            <div className="progress-bar bg-gray-200 dark:bg-gray-700">
-              <div 
-                ref={el => progressRefs.current[index] = el}
-                className="progress-bar-fill bg-primary" 
-                style={{ width: "0%" }}
-              ></div>
-            </div>
-          </div>
+            skill={skill}
+            index={index}
+            isVisible={isVisible}
+            animationDirection={animationDirection}
+            delay={staggerDelay}
+          />
         ))}
       </div>
     </div>
@@ -109,38 +132,38 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20 section-wrapper" ref={sectionRef}>
       <div className="container mx-auto px-4">
-        <h2 className={`text-3xl md:text-4xl font-bold mb-16 text-center gradient-text ${isSectionVisible ? 'slide-in-from-bottom' : 'opacity-0'}`}>
+        <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-center gradient-text ${isSectionVisible ? 'slide-in-from-bottom' : 'opacity-0'}`}>
           Skills & Expertise
         </h2>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <SkillCategory 
-            title="Frontend Development" 
-            icon={<Monitor className="h-6 w-6 text-primary" />} 
+            title="Frontend" 
+            icon={<Monitor className="h-5 w-5 text-primary" />} 
             skills={skillsData.frontend}
             animationDirection="left"
             staggerDelay={0.2}
           />
           
           <SkillCategory 
-            title="Backend Development" 
-            icon={<Server className="h-6 w-6 text-primary" />} 
+            title="Backend" 
+            icon={<Server className="h-5 w-5 text-primary" />} 
             skills={skillsData.backend}
             animationDirection="right"
             staggerDelay={0.4}
           />
           
           <SkillCategory 
-            title="Machine Learning" 
-            icon={<BrainCircuit className="h-6 w-6 text-primary" />} 
+            title="ML & AI" 
+            icon={<BrainCircuit className="h-5 w-5 text-primary" />} 
             skills={skillsData.machineLearning}
             animationDirection="left"
             staggerDelay={0.6}
           />
           
           <SkillCategory 
-            title="Tools & Workflow" 
-            icon={<Settings className="h-6 w-6 text-primary" />} 
+            title="Tools" 
+            icon={<Settings className="h-5 w-5 text-primary" />} 
             skills={skillsData.tools}
             animationDirection="right"
             staggerDelay={0.8}

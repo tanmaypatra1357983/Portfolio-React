@@ -149,28 +149,65 @@
 
 /* Advanced animations */
 .slide-in-from-left {
-  @apply opacity-0 -translate-x-10;
-  animation: slide-in-left 0.8s ease forwards;
+  @apply opacity-0 -translate-x-16;
+  animation: slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .slide-in-from-right {
-  @apply opacity-0 translate-x-10;
-  animation: slide-in-right 0.8s ease forwards;
+  @apply opacity-0 translate-x-16;
+  animation: slide-in-right 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .slide-in-from-bottom {
-  @apply opacity-0 translate-y-10;
-  animation: slide-in-bottom 0.8s ease forwards;
+  @apply opacity-0 translate-y-16;
+  animation: slide-in-bottom 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .scale-in {
-  @apply opacity-0 scale-95;
-  animation: scale-in 0.8s ease forwards;
+  @apply opacity-0 scale-90;
+  animation: scale-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .fade-in {
   @apply opacity-0;
-  animation: fade-in 0.8s ease forwards;
+  animation: fade-in 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Apple-style parallax effects */
+.parallax-scroll {
+  transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+  will-change: transform;
+}
+
+.parallax-slow {
+  transform: translateY(calc(var(--scroll-y, 0) * 0.3px));
+}
+
+.parallax-medium {
+  transform: translateY(calc(var(--scroll-y, 0) * 0.5px));
+}
+
+.parallax-fast {
+  transform: translateY(calc(var(--scroll-y, 0) * 0.7px));
+}
+
+/* 3D rotation on scroll */
+.rotate-on-scroll {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.rotate-on-scroll > * {
+  transform: translateZ(0);
+  transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* Sticky header blur effect */
+.header-blur-on-scroll {
+  backdrop-filter: blur(calc(var(--scroll-y, 0) * 0.1px));
+  background-color: rgba(var(--background), calc(var(--scroll-y, 0) * 0.003));
+  box-shadow: 0 1px 3px rgba(0, 0, 0, calc(var(--scroll-y, 0) * 0.003));
 }
 
 .scroll-compress {
