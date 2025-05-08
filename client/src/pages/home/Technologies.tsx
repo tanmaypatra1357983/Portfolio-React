@@ -38,32 +38,32 @@ const TechnologyCard = ({
   return (
     <div
       ref={ref}
-      className={`relative overflow-hidden bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-6 rounded-xl shadow-lg flex items-center justify-center transform transition-all duration-500 ${
+      className={`relative overflow-hidden bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm p-6 rounded-xl shadow-lg flex items-center justify-center transform transition-all duration-500 hover:scale-105 hover:shadow-xl hover:shadow-primary/20 hover:z-10 group ${
         isVisible ? animationClass : 'opacity-0'
       } ${
         isHighlighted ? 'scale-105 shadow-xl shadow-primary/20 z-10' : ''
       }`}
       style={{ animationDelay: `${index * 0.1}s` }}
     >
-      <span className="text-lg font-medium relative z-10">{name}</span>
+      <span className="text-lg font-medium relative z-10 group-hover:text-primary transition-colors">{name}</span>
       
       {/* Decorative background patterns */}
       <div 
         className={`absolute -top-10 -right-10 w-20 h-20 bg-primary/10 rounded-full blur-xl transition-opacity duration-300 ${
           isHighlighted ? 'opacity-100' : 'opacity-0'
-        }`}
+        } group-hover:opacity-100`}
       ></div>
       <div 
-        className={`absolute -bottom-6 -left-6 w-12 h-12 bg-blue-500/10 rounded-full blur-lg transition-opacity duration-300 ${
+        className={`absolute -bottom-6 -left-6 w-12 h-12 bg-green-500/10 rounded-full blur-lg transition-opacity duration-300 ${
           isHighlighted ? 'opacity-100' : 'opacity-0'
-        }`}
+        } group-hover:opacity-100`}
       ></div>
       
       {/* Bottom border shine effect */}
       <div 
         className={`absolute bottom-0 left-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent w-full transform translate-x-full transition-transform duration-700 ${
           isHighlighted ? 'animate-shine' : ''
-        }`}
+        } group-hover:animate-shine`}
       ></div>
     </div>
   );
@@ -106,8 +106,8 @@ const Technologies = () => {
     >
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-20 dark:opacity-10 pointer-events-none">
-        <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/30 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-500/30 rounded-full blur-3xl"></div>
+        <div className="absolute -top-20 -right-20 w-64 h-64 bg-emerald-500/30 dark:bg-primary/30 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-green-500/30 dark:bg-blue-500/30 rounded-full blur-3xl"></div>
       </div>
       
       <div className="container mx-auto px-4 relative">

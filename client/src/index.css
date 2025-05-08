@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
+    --background: 160 25% 98%;
+    --foreground: 140 30% 10%;
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 140 30% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-    --primary: 221 83% 53%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222 47% 11%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222 47% 11%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221 83% 53%;
+    --popover-foreground: 140 30% 10%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 355 100% 100%;
+    --secondary: 145 30% 96%;
+    --secondary-foreground: 140 30% 10%;
+    --muted: 145 30% 96%;
+    --muted-foreground: 140 12% 46%;
+    --accent: 145 30% 92%;
+    --accent-foreground: 140 30% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 160 25% 98%;
+    --border: 142 32% 90%;
+    --input: 142 32% 90%;
+    --ring: 142 76% 36%;
     --radius: 0.75rem;
   }
 
@@ -97,7 +97,7 @@
 }
 
 .gradient-text {
-  @apply bg-gradient-to-r from-primary to-blue-500 dark:from-primary dark:to-orange-500 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-primary to-emerald-500 dark:from-primary dark:to-orange-500 bg-clip-text text-transparent;
 }
 
 .hover-lift {
