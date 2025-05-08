@@ -13,7 +13,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="w-full lg:w-1/2"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight gradient-text">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight gradient-text heading-float">
               Software Developer &<span className="block">ML Enthusiast</span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">

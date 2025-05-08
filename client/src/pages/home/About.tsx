@@ -63,7 +63,7 @@ const About = () => {
       className="py-20 bg-gray-100 dark:bg-gray-800 overflow-hidden section-wrapper"
     >
       <div className="container mx-auto px-4">
-        <h2 className={`text-3xl md:text-4xl font-bold mb-16 text-center gradient-text ${isSectionVisible ? 'slide-in-from-bottom' : 'opacity-0'}`}>
+        <h2 className={`text-3xl md:text-4xl font-bold mb-16 text-center gradient-text heading-float ${isSectionVisible ? 'slide-in-from-bottom' : 'opacity-0'}`}>
           About Me
         </h2>
 
@@ -151,11 +151,11 @@ const About = () => {
         
         {/* Education Timeline */}
         <div className="mt-20" ref={timelineRef}>
-          <h3 className={`text-2xl font-bold mb-10 text-center fade-in ${isSectionVisible ? 'animate-on-scroll' : ''}`}>
+          <h3 className={`text-2xl font-bold mb-10 text-center fade-in heading-float ${isSectionVisible ? 'animate-on-scroll' : ''}`}>
             Education & Experience
           </h3>
           
-          <h4 className="text-xl font-semibold mb-6 ml-4 slide-in-from-left">
+          <h4 className="text-xl font-semibold mb-6 ml-4 slide-in-from-left heading-float">
             Education
           </h4>
           <div className="relative border-l border-primary/30 ml-4 md:ml-0 md:pl-0 pl-8 mb-12">
@@ -195,7 +195,7 @@ const About = () => {
           </div>
           
           {/* Professional Experience */}
-          <h4 className="text-xl font-semibold mb-6 ml-4 slide-in-from-left">
+          <h4 className="text-xl font-semibold mb-6 ml-4 slide-in-from-left heading-float">
             Experience
           </h4>
           <div className="relative border-l border-primary/30 ml-4 md:ml-0 md:pl-0 pl-8 mb-12">

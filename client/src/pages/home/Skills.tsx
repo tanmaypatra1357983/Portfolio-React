@@ -132,7 +132,7 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20 section-wrapper" ref={sectionRef}>
       <div className="container mx-auto px-4">
-        <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-center gradient-text ${isSectionVisible ? 'slide-in-from-bottom' : 'opacity-0'}`}>
+        <h2 className={`text-3xl md:text-4xl font-bold mb-12 text-center gradient-text heading-float ${isSectionVisible ? 'slide-in-from-bottom' : 'opacity-0'}`}>
           Skills & Expertise
         </h2>
         

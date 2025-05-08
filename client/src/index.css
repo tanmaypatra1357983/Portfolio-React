@@ -100,6 +100,23 @@
   @apply bg-gradient-to-r from-primary to-emerald-500 dark:from-primary dark:to-orange-500 bg-clip-text text-transparent;
 }
 
+/* Subtle floating/bouncing animation for headings */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.heading-float {
+  animation: float 3s ease-in-out infinite;
+}
+
 .hover-lift {
   @apply transition-transform duration-300 ease-in-out hover:-translate-y-1;
 }
