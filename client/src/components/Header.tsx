@@ -18,7 +18,7 @@ const Header = () => {
   // Handle scroll to update active navigation link
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "skills", "projects", "contact"];
+      const sections = ["home", "about", "skills", "technologies", "projects", "contact"];
       const scrollPosition = window.scrollY;
       
       // Set scrolled state for header styling
@@ -78,7 +78,7 @@ const Header = () => {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          {["home", "about", "skills", "projects", "contact"].map((section) => (
+          {["home", "about", "skills", "technologies", "projects", "contact"].map((section) => (
             <a
               key={section}
               href={`#${section}`}
@@ -142,7 +142,7 @@ const Header = () => {
         }`}
       >
         <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-          {["home", "about", "skills", "projects", "contact"].map((section, index) => (
+          {["home", "about", "skills", "technologies", "projects", "contact"].map((section, index) => (
             <a
               key={section}
               href={`#${section}`}
