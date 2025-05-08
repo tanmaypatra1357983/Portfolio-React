@@ -1,7 +1,7 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect } from "react";
 
-// Available dark theme variants
-export type Theme = "dark-default" | "dark-blue" | "dark-purple" | "dark-green";
+// Using only the Electric Blue theme
+export type Theme = "dark-blue";
 
 type ThemeProviderProps = {
   children: React.ReactNode;
@@ -13,15 +13,11 @@ type ThemeProviderState = {
   themeOptions: Theme[];
 };
 
-const themeOptions: Theme[] = [
-  "dark-default",
-  "dark-blue",
-  "dark-purple",
-  "dark-green",
-];
+// Only one theme option - Electric Blue
+const themeOptions: Theme[] = ["dark-blue"];
 
 const initialState: ThemeProviderState = {
-  theme: "dark-default",
+  theme: "dark-blue", // Charcoal + Electric Blue theme
   setTheme: () => null,
   themeOptions,
 };
@@ -30,25 +26,21 @@ export const ThemeProviderContext =
   createContext<ThemeProviderState>(initialState);
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  // Get the saved theme preference
-  const getSavedTheme = (): Theme => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme && themeOptions.includes(savedTheme as Theme)) {
-      return savedTheme as Theme;
-    }
+  // Always use dark-blue theme (Charcoal + Electric Blue + Soft White)
+  const theme: Theme = "dark-blue";
 
-    // Default to dark-default
-    return "dark-default";
+  // No-op function since we don't change themes
+  const setThemeState = () => {
+    console.log(
+      "Theme locked to Electric Blue (Charcoal + Electric Blue + Soft White)"
+    );
   };
 
-  // Theme state
-  const [theme, setThemeState] = useState<Theme>(getSavedTheme);
-
-  // Apply theme changes to document
+  // Apply theme changes to document - always sets dark-blue
   useEffect(() => {
     const root = document.documentElement;
 
-    // Remove all theme classes
+    // Remove all possible theme classes (for safety)
     root.classList.remove(
       "dark-default",
       "dark-blue",
@@ -56,20 +48,20 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
       "dark-green"
     );
 
-    // Add the current theme class
-    root.classList.add(theme);
+    // Add the Electric Blue theme class
+    root.classList.add("dark-blue");
 
     // Also add dark class for existing dark: tailwind classes
     root.classList.add("dark");
 
-    localStorage.setItem("theme", theme);
-    console.log("Theme changed to:", theme);
-  }, [theme]);
+    localStorage.setItem("theme", "dark-blue");
+    console.log("Theme changed to:", "dark-blue");
+  }, []);
 
-  // Set theme function
-  const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme);
-    localStorage.setItem("theme", newTheme);
+  // Set theme function - always sets to dark-blue
+  const setTheme = (_newTheme: Theme) => {
+    setThemeState();
+    localStorage.setItem("theme", "dark-blue");
   };
 
   return (

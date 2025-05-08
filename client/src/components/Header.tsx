@@ -1,54 +1,19 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { useTheme, Theme } from "@/hooks/use-theme";
-import { Menu, ChevronDown, Check, X, Palette } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useParallaxScroll } from "@/hooks/use-parallax-scroll";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentSection, setCurrentSection] = useState("home");
-  const { theme, setTheme, themeOptions } = useTheme();
   const [location] = useLocation();
   const [scrolled, setScrolled] = useState(false);
-  const [showThemeOptions, setShowThemeOptions] = useState(false);
 
   // Use parallax scroll effect
   useParallaxScroll();
 
-  // Reference for clicking outside to close dropdown
-  const themeDropdownRef = useRef<HTMLDivElement>(null);
-
-  // Close theme options dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        themeDropdownRef.current &&
-        !themeDropdownRef.current.contains(event.target as Node)
-      ) {
-        setShowThemeOptions(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [themeDropdownRef]);
-
-  // Function to get theme display name
-  const getThemeDisplayName = (themeName: Theme): string => {
-    switch (themeName) {
-      case "dark-default":
-        return "Dark";
-      case "dark-blue":
-        return "Blue";
-      case "dark-purple":
-        return "Purple";
-      case "dark-green":
-        return "Green";
-      default:
-        return themeName;
-    }
-  };
+  // Only using Electric Blue theme now
 
   // Handle scroll to update active navigation link
   useEffect(() => {
@@ -147,77 +112,10 @@ const Header = () => {
             </a>
           ))}
 
-          {/* Theme Options */}
-          <div className="relative" ref={themeDropdownRef}>
-            {/* Theme Toggle Button */}
-            <button
-              onClick={() => setShowThemeOptions(!showThemeOptions)}
-              className="relative p-3 rounded-full bg-gray-800 text-gray-200 hover:bg-primary/20 hover:text-primary transition-all duration-300 overflow-hidden active:scale-95 flex items-center"
-              aria-label="Theme options"
-            >
-              <div className="relative z-10 flex items-center">
-                <Palette className="h-5 w-5 mr-1" />
-                <ChevronDown
-                  className={`h-3 w-3 ml-1 transition-transform duration-200 ${
-                    showThemeOptions ? "rotate-180" : ""
-                  }`}
-                />
-              </div>
-              <div
-                className="absolute inset-0 bg-primary/10 rounded-full transform scale-0 transition-transform duration-300 origin-center"
-                style={{
-                  transform: "scale(0)",
-                  opacity: 0,
-                  animation: "theme-ripple 0.5s ease forwards",
-                }}
-              ></div>
-            </button>
-
-            {/* Theme Dropdown */}
-            <div
-              className={`absolute right-0 mt-2 p-2 bg-gray-800 shadow-lg rounded-lg transition-all duration-200 origin-top-right z-50 ${
-                showThemeOptions
-                  ? "opacity-100 scale-100"
-                  : "opacity-0 scale-95 pointer-events-none"
-              }`}
-              style={{ minWidth: "180px" }}
-            >
-              <div className="mb-2 px-3 py-1 text-sm text-gray-400 font-medium border-b border-gray-700">
-                Select Theme
-              </div>
-              {themeOptions.map((themeOption) => (
-                <button
-                  key={themeOption}
-                  onClick={() => {
-                    setTheme(themeOption);
-                    setShowThemeOptions(false);
-                  }}
-                  className={`w-full text-left px-3 py-2 rounded flex items-center justify-between text-sm transition-colors ${
-                    themeOption === theme
-                      ? "bg-primary/10 text-primary"
-                      : "hover:bg-gray-700 text-gray-200"
-                  }`}
-                >
-                  <div className="flex items-center">
-                    <div
-                      className={`w-4 h-4 rounded-full mr-3 ${
-                        themeOption === "dark-default"
-                          ? "bg-gray-900"
-                          : themeOption === "dark-blue"
-                          ? "bg-blue-900"
-                          : themeOption === "dark-purple"
-                          ? "bg-purple-900"
-                          : themeOption === "dark-green"
-                          ? "bg-green-900"
-                          : ""
-                      }`}
-                    ></div>
-                    {getThemeDisplayName(themeOption)}
-                  </div>
-                  {themeOption === theme && <Check className="h-4 w-4" />}
-                </button>
-              ))}
-            </div>
+          {/* Theme Indicator - Electric Blue */}
+          <div className="relative p-3 rounded-full bg-[#121212] border border-[#3B82F6]/30 text-[#E5E7EB] overflow-hidden flex items-center">
+            <div className="w-3 h-3 rounded-full mr-2 bg-[#3B82F6]"></div>
+            <span className="text-xs font-medium">Electric Blue Theme</span>
           </div>
         </nav>
 
@@ -277,59 +175,19 @@ const Header = () => {
             </a>
           ))}
 
-          {/* Theme Selection - Mobile */}
+          {/* Theme Indicator - Mobile */}
           <div
-            className="flex flex-col space-y-3"
+            className="flex items-center mt-4 px-2 py-3 rounded-lg bg-[#121212] border border-[#3B82F6]/30"
             style={{
               opacity: mobileMenuOpen ? 1 : 0,
               transform: mobileMenuOpen ? "translateX(0)" : "translateX(-20px)",
               transition: `transform 0.3s ease 0.25s, opacity 0.3s ease 0.25s`,
             }}
           >
-            <div className="flex items-center justify-between">
-              <span className="text-gray-200 font-medium">Theme</span>
-            </div>
-
-            {/* Theme Options */}
-            <div className="grid grid-cols-4 gap-2 mt-1">
-              {themeOptions.map((themeOption) => (
-                <button
-                  key={themeOption}
-                  onClick={() => setTheme(themeOption)}
-                  className={`flex flex-col items-center justify-center p-2 rounded transition-colors ${
-                    themeOption === theme
-                      ? "bg-primary/10 text-primary ring-1 ring-primary"
-                      : "hover:bg-gray-700 text-gray-200"
-                  }`}
-                  title={getThemeDisplayName(themeOption)}
-                >
-                  <div
-                    className={`w-6 h-6 rounded-full mb-1 ${
-                      themeOption === "dark-default"
-                        ? "bg-gray-900"
-                        : themeOption === "dark-blue"
-                        ? "bg-blue-900"
-                        : themeOption === "dark-purple"
-                        ? "bg-purple-900"
-                        : themeOption === "dark-green"
-                        ? "bg-green-900"
-                        : ""
-                    }`}
-                  ></div>
-                  <span className="text-xs truncate">
-                    {themeOption === "dark-default"
-                      ? "Dark"
-                      : themeOption === "dark-blue"
-                      ? "Blue"
-                      : themeOption === "dark-purple"
-                      ? "Purple"
-                      : themeOption === "dark-green"
-                      ? "Green"
-                      : ""}
-                  </span>
-                </button>
-              ))}
-            </div>
+            <div className="w-3 h-3 rounded-full mr-2 bg-[#3B82F6]"></div>
+            <span className="text-xs font-medium text-[#E5E7EB]">
+              Electric Blue Theme
+            </span>
           </div>
         </div>
       </div>
