@@ -1,82 +1,82 @@
 export const skillsData = {
-  frontend: [
+  Languages: [
     {
-      name: "HTML/CSS",
-      percentage: 88
-    },
-    {
-      name: "JavaScript",
-      percentage: 85
-    },
-    {
-      name: "React.js",
-      percentage: 85
-    },
-    {
-      name: "Bootstrap",
-      percentage: 80
-    },
-    {
-      name: "Tailwind CSS",
-      percentage: 75
-    }
-  ],
-  backend: [
-    {
-      name: "Java",
-      percentage: 90
+      name: "ANSI C",
+      percentage: 80,
     },
     {
       name: "Python",
-      percentage: 85
+      percentage: 75,
     },
     {
-      name: "C",
-      percentage: 80
+      name: "Java",
+      percentage: 70,
     },
     {
-      name: "MongoDB",
-      percentage: 78
+      name: "Javascipt",
+      percentage: 65,
+    },
+  ],
+  Web_Development: [
+    {
+      name: "HTML/CSS",
+      percentage: 80,
+    },
+    {
+      name: "React.js",
+      percentage: 70,
     },
     {
       name: "Express.js",
-      percentage: 80
-    }
+      percentage: 60,
+    },
+    {
+      name: "Node.js",
+      percentage: 50,
+    },
+    {
+      name: "JWT (jsonwebtoken)",
+      percentage: 50,
+    },
   ],
   machineLearning: [
     {
+      name: "Numpy/Pandas",
+      percentage: 80,
+    },
+    {
+      name: "scikit-learn, matplotlib",
+      percentage: 70,
+    },
+    {
       name: "TensorFlow",
-      percentage: 82
+      percentage: 60,
     },
     {
-      name: "Pandas",
-      percentage: 88
+      name: "Pytorch",
+      percentage: 50,
     },
     {
-      name: "Machine Learning",
-      percentage: 80
+      name: "OpenCV (Some Libraries)",
+      percentage: 40,
     },
-    {
-      name: "Data Analysis",
-      percentage: 85
-    }
   ],
   tools: [
     {
       name: "Git & GitHub",
-      percentage: 92
+      percentage: 90,
     },
     {
-      name: "VS Code",
-      percentage: 90
+      name: "JupyterNotebook , Google Colab",
+      percentage: 80,
     },
     {
-      name: "Data Structures",
-      percentage: 85
+      name: "Docker, Kubernetes, Jira",
+      percentage: 70,
     },
     {
-      name: "Algorithms",
-      percentage: 83
-    }
-  ]
+      name: "AWS",
+      percentage: 60,
+    },
+  ],
 };

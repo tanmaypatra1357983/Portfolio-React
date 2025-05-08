@@ -17,8 +17,7 @@ const Hero = () => {
               Software Developer &<span className="block">ML Enthusiast</span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
-              Creating elegant solutions through clean code and thoughtful
-              design. Specializing in web applications and AI integrations.
+              Hey there! I'm passionate about building innovative solutions at the intersection of web development and machine learning. I'm drawn to crafting clean, maintainable code with a focus on readability and elegant design. I'm eager to learn and implement best practices while building robust, scalable web applications and seamlessly integrating AI to create compelling and user-friendly experiences.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button
@@ -37,14 +36,14 @@ const Hero = () => {
                 className="rounded-full text-md px-6 hover-lift"
                 asChild
               >
-                <a href="/resume.pdf" download>
+                <a href="/assets/resume.pdf" download="Tanmay_Patra_Resume.pdf">
                   Download CV <Download className="ml-2 h-4 w-4" />
                 </a>
               </Button>
             </div>
             <div className="flex gap-6 mt-10">
               <a
-                href="https://github.com"
+                href="https://github.com/TanmayaPatra369"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
@@ -53,7 +52,7 @@ const Hero = () => {
                 <Github className="h-6 w-6" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/tanmay-patra-86b250251/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
@@ -62,17 +61,17 @@ const Hero = () => {
                 <Linkedin className="h-6 w-6" />
               </a>
               <a
-                href="https://twitter.com"
+                href="https://leetcode.com/u/Tanmay_Patra/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
-                aria-label="Twitter"
+                aria-label="LeetCode"
               >
                 <Twitter className="h-6 w-6" />
               </a>
             </div>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

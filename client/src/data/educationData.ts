@@ -26,7 +26,7 @@ export const internshipData = [
     company: "CSIR 4th Paradigm",
     location: "Bangalore",
     description: "Assisted in developing and optimizing ML models for data analysis and pattern recognition. Worked on data preprocessing, feature engineering, and model evaluation to enhance accuracy and efficiency. Achieved 85% improvement in model accuracy and reduced processing time by 15%, contributing to a more effective system.",
-    githubUrl: "https://github.com/repo"
+    githubUrl: "https://github.com/TanmayaPatra369/RAINFALL_CSIR.git"
   }
 ];
 
@@ -45,7 +45,8 @@ export const certificationData = [
     title: "Problem Solving",
     organization: "HackerRank",
     year: "2023"
-  }
+  },
+
 ];
 
 export const hackathonData = [

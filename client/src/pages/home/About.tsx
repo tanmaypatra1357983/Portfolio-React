@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, Heart, Mail, ArrowRight, Github } from "lucide-react";
+import { Briefcase, GraduationCap, Heart, Mail, ArrowRight, Github, FileText, Download } from "lucide-react";
 import { aboutData } from "@/data/aboutData";
 import { educationData, internshipData, certificationData, hackathonData } from "@/data/educationData";
 import { useScrollAnimation, useScrollCompression } from "@/hooks/use-scroll-animation";
@@ -72,16 +72,38 @@ const About = () => {
           className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isCompressed ? 'scale-95 opacity-50' : ''} transition-all duration-500`}
         >
           <div className={`${isBioVisible ? 'slide-in-from-left' : 'opacity-0'}`}>
-            <img
-              src="https://images.unsplash.com/photo-1580518324671-c2f0833a3af3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000&q=80"
-              alt="Professional headshot"
-              className="w-full h-auto rounded-2xl shadow-xl mx-auto max-w-md"
-            />
+            <div className="relative">
+              <img
+                src="/assets/profile.png"
+                alt="Tanmay Patra"
+                className="w-full h-auto rounded-2xl shadow-xl mx-auto max-w-md bg-white/80"
+              />
+              
+              <div className="mt-6 flex justify-center">
+                <a 
+                  href="/assets/resume.pdf" 
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 group"
+                >
+                  <FileText className="h-5 w-5 mr-2 group-hover:animate-pulse" />
+                  View Resume
+                </a>
+                <a 
+                  href="/assets/resume.pdf" 
+                  download="Tanmay_Patra_Resume.pdf"
+                  className="ml-4 inline-flex items-center bg-white hover:bg-gray-100 text-primary border border-primary px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 group"
+                >
+                  <Download className="h-5 w-5 mr-2 group-hover:animate-bounce" />
+                  Download
+                </a>
+              </div>
+            </div>
           </div>
 
           <div className={`${isBioVisible ? 'slide-in-from-right' : 'opacity-0'}`}>
             <h3 className="text-2xl font-bold mb-6">
-              Hello, I'm <span className="gradient-text">ME</span>
+              Hello, I'm <span className="gradient-text">Tanmay Patra</span>
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">
               {aboutData.intro}
@@ -107,7 +129,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-lg">Completed Projects</h4>
-                  <p className="text-gray-600 dark:text-gray-400">{aboutData.projects}+ projects</p>
+                  <p className="text-gray-600 dark:text-gray-400">{aboutData.projects} projects</p>
                 </div>
               </div>
 

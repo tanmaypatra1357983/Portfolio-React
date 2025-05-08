@@ -24,47 +24,30 @@ export const technologyCategories = [
 
 // Complete list of technologies to display in the Technologies section
 export const allTechnologies = [
-  // Frontend Technologies
-  "React",
-  "TypeScript",
-  "JavaScript",
-  "HTML5 & CSS3",
-  "Tailwind CSS",
-  "Next.js",
-  "Redux",
-  "Framer Motion",
-  
-  // Backend Technologies
-  "Node.js",
-  "Express",
-  "Python",
-  "Django",
-  "MongoDB",
-  "PostgreSQL",
-  "GraphQL",
-  "RESTful APIs",
-  
-  // Machine Learning
-  "TensorFlow",
-  "PyTorch",
-  "Scikit-learn",
-  "Pandas",
-  "Numpy",
-  "Keras",
-  "Jupyter Notebook",
-  "NLTK",
-  
-  // DevOps
-  "Docker",
-  "Git & GitHub",
-  "AWS",
-  "CI/CD",
-  "Linux",
-  "Nginx",
-  
-  // Mobile & Other
-  "React Native",
-  "Firebase",
-  "Socket.io",
-  "WebSockets"
-];
+    "Python",
+    "C",
+    "Java",
+    "JavaScript",
+    "HTML",
+    "CSS (and Tailwind)",
+    "React",
+    "Node.js",
+    "Express.js",
+    "TensorFlow",
+    "Scikit-learn",
+    "Pandas",
+    "NumPy",
+    "Keras",
+    "Flask",
+    "Docker",
+    "Git & GitHub",
+    "CI/CD",
+    "Linux",
+    "AWS",
+    "MySQL",
+    "MongoDB",
+    "Operating System",
+    "Computer Networks",
+    "Computer Organization & Architecture",
+    "OOPs"
+  ];

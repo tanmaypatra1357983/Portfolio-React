@@ -132,7 +132,7 @@ const Projects = () => {
       
       <div className="container mx-auto px-4 relative">
         <div className="parallax-scroll parallax-slow">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-8 text-center gradient-text heading-float ${isSectionVisible ? 'slide-in-from-bottom' : 'opacity-0'}`}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center gradient-text heading-float">
             Featured Projects
           </h2>
           <p className={`text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-16 ${isSectionVisible ? 'fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>

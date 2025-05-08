@@ -73,7 +73,7 @@ const Header = () => {
             scrollToSection("home");
           }}
         >
-          DEV<span className="font-mono">/</span>FOLIO
+          Tanmay<span className="font-mono"> </span>Patra
         </a>
         
         {/* Desktop Navigation */}
