@@ -315,6 +315,12 @@
   opacity: 0 !important;
 }
 
+/* Always keep elements visible */
+.animate-always-visible {
+  opacity: 1 !important;
+  animation: none !important;
+}
+
 @media (prefers-reduced-motion) {
   .animate-slide-up,
   .animate-fade-in,

@@ -102,7 +102,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-lg">Experience</h4>
-                  <p className="text-gray-600 dark:text-gray-400">{aboutData.experience}</p>
+                  <p className="text-gray-600 dark:text-gray-400">{aboutData.internship}</p>
                 </div>
               </div>
 

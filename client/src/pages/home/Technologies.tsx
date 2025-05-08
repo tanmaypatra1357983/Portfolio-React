@@ -113,16 +113,12 @@ const Technologies = () => {
       
       <div className="container mx-auto px-4 relative">
         <div className="parallax-scroll parallax-slow">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 text-center gradient-text heading-float ${
-            isSectionVisible ? 'slide-in-from-bottom' : 'opacity-0'
-          }`}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center gradient-text heading-float animate-always-visible">
             Technologies I Work With
           </h2>
           
-          <p className={`text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12 ${
-            isSectionVisible ? 'fade-in' : 'opacity-0'
-          }`} style={{ animationDelay: '0.2s' }}>
-            The tools and technologies I've mastered on my development journey
+          <p className="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12 animate-always-visible">
+            My development skills and technologies that I have learnt or am learning.
           </p>
         </div>
         

@@ -1,12 +1,13 @@
 import { Github, Linkedin, Mail, Instagram } from "lucide-react";
 import React from "react";
+import { internshipData } from "./educationData";
 
 export const aboutData = {
   intro:
   "Passionate Software Developer and Machine Learning enthusiast with a solid CS foundation, creating innovative solutions and exploring emerging technologies.",
   passion:
     "I believe in hands-on learning and practical application of concepts. I'm constantly challenging myself with new projects and problem-solving tasks.",
-  experience: "1+ year",
+  internship: "3+ Months",
   projects: "5+",
   education: "B.Tech CSE",
   location: "Bhubaneswar, Odisha, India",

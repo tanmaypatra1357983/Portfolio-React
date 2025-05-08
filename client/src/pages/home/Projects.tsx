@@ -136,7 +136,7 @@ const Projects = () => {
             Featured Projects
           </h2>
           <p className={`text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-16 ${isSectionVisible ? 'fade-in' : 'opacity-0'}`} style={{ animationDelay: '0.2s' }}>
-            A showcase of my recent work spanning web development, machine learning, and technical problem-solving
+            A showcase of my recent work spanning web development, machine learning, and technical problem-solving. Hover on the Projects to see the live demo and code.
           </p>
         </div>
         
