@@ -103,18 +103,29 @@
 /* Subtle floating/bouncing animation for headings */
 @keyframes float {
   0% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(-0.5deg);
+    text-shadow: 0 5px 15px rgba(var(--primary), 0.1);
+  }
+  25% {
+    text-shadow: 0 15px 15px rgba(var(--primary), 0.2);
   }
   50% {
-    transform: translateY(-5px);
+    transform: translateY(-7px) rotate(0.5deg);
+    text-shadow: 0 25px 25px rgba(var(--primary), 0.3);
+  }
+  75% {
+    text-shadow: 0 15px 15px rgba(var(--primary), 0.2);
   }
   100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(-0.5deg);
+    text-shadow: 0 5px 15px rgba(var(--primary), 0.1);
   }
 }
 
 .heading-float {
-  animation: float 3s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform;
 }
 
 .hover-lift {

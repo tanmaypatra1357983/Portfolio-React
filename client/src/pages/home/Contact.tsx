@@ -66,7 +66,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-3xl md:text-4xl font-bold mb-16 text-center gradient-text"
+          className="text-3xl md:text-4xl font-bold mb-16 text-center gradient-text heading-float"
         >
           Get In Touch
         </motion.h2>

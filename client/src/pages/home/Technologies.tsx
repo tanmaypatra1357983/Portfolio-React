@@ -12,8 +12,9 @@ const TechnologyCard = ({
   index: number;
   isHighlighted: boolean;
 }) => {
+  // Lower threshold and set once to true to make it appear faster
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>({
-    threshold: 0.1,
+    threshold: 0.01,
     once: true
   });
   
@@ -112,7 +113,7 @@ const Technologies = () => {
       
       <div className="container mx-auto px-4 relative">
         <div className="parallax-scroll parallax-slow">
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 text-center gradient-text ${
+          <h2 className={`text-3xl md:text-4xl font-bold mb-6 text-center gradient-text heading-float ${
             isSectionVisible ? 'slide-in-from-bottom' : 'opacity-0'
           }`}>
             Technologies I Work With

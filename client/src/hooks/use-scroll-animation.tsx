@@ -14,43 +14,55 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
     threshold = 0.1,
     root = null,
     rootMargin = "0px",
-    once = false,
+    once = true, // Default to true to ensure animations only run once
   } = options;
 
   const ref = useRef<T>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     const currentRef = ref.current;
     if (!currentRef) return;
 
-    const observer = new IntersectionObserver(
+    // Create observer instance
+    observerRef.current = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
         
         if (entry.isIntersecting) {
+          // Element is visible in viewport
           setIsVisible(true);
+          
+          // If once is true, we only want to trigger the animation once
           if (once) {
             setHasAnimated(true);
-            observer.unobserve(currentRef);
+            // Unobserve after animating once
+            if (observerRef.current && currentRef) {
+              observerRef.current.unobserve(currentRef);
+            }
           }
         } else if (!once || !hasAnimated) {
+          // Element is out of viewport and we want to reset the animation
           setIsVisible(false);
         }
       },
       {
         root,
-        rootMargin,
+        // Adjust rootMargin to trigger animation earlier
+        rootMargin: rootMargin || "50px",
         threshold,
       }
     );
 
-    observer.observe(currentRef);
+    // Start observing
+    observerRef.current.observe(currentRef);
 
+    // Cleanup function
     return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
+      if (currentRef && observerRef.current) {
+        observerRef.current.unobserve(currentRef);
       }
     };
   }, [threshold, root, rootMargin, once, hasAnimated]);
