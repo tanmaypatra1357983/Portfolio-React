@@ -1,0 +1,28 @@
+/* Animations for the loading spinner */
+@keyframes spinner-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float-up {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}
+
+.spinner-rotate {
+  animation: spinner-spin 1.2s cubic-bezier(0.6, 0.2, 0.4, 0.9) infinite;
+}
+
+.emoji-float {
+  animation: float-up 1s ease-out forwards;
+}

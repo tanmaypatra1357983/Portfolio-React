@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 
-type Theme = "dark" | "light";
+// Available dark theme variants
+export type Theme = "dark-default" | "dark-blue" | "dark-purple" | "dark-green";
 
 type ThemeProviderProps = {
   children: React.ReactNode;
@@ -8,56 +9,77 @@ type ThemeProviderProps = {
 
 type ThemeProviderState = {
   theme: Theme;
-  toggleTheme: () => void;
+  setTheme: (theme: Theme) => void;
+  themeOptions: Theme[];
 };
+
+const themeOptions: Theme[] = [
+  "dark-default",
+  "dark-blue",
+  "dark-purple",
+  "dark-green",
+];
 
 const initialState: ThemeProviderState = {
-  theme: "light",
-  toggleTheme: () => null,
+  theme: "dark-default",
+  setTheme: () => null,
+  themeOptions,
 };
 
-export const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
+export const ThemeProviderContext =
+  createContext<ThemeProviderState>(initialState);
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  // Simpler theme implementation with just light or dark
-  const [theme, setTheme] = useState<Theme>(() => {
-    // Try to get theme from localStorage
+  // Get the saved theme preference
+  const getSavedTheme = (): Theme => {
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark" || savedTheme === "light") {
-      return savedTheme;
+    if (savedTheme && themeOptions.includes(savedTheme as Theme)) {
+      return savedTheme as Theme;
     }
 
-    // If no saved preference, use system preference
-    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark";
-    }
+    // Default to dark-default
+    return "dark-default";
+  };
 
-    // Default to light
-    return "light";
-  });
+  // Theme state
+  const [theme, setThemeState] = useState<Theme>(getSavedTheme);
 
   // Apply theme changes to document
   useEffect(() => {
     const root = document.documentElement;
-    if (theme === "dark") {
-      root.classList.add("dark");
-      root.classList.remove("light");
-    } else {
-      root.classList.add("light");
-      root.classList.remove("dark");
-    }
+
+    // Remove all theme classes
+    root.classList.remove(
+      "dark-default",
+      "dark-blue",
+      "dark-purple",
+      "dark-green"
+    );
+
+    // Add the current theme class
+    root.classList.add(theme);
+
+    // Also add dark class for existing dark: tailwind classes
+    root.classList.add("dark");
+
+    localStorage.setItem("theme", theme);
+    console.log("Theme changed to:", theme);
   }, [theme]);
 
-  // Simple toggle function
-  const toggleTheme = () => {
-    const newTheme = theme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
+  // Set theme function
+  const setTheme = (newTheme: Theme) => {
+    setThemeState(newTheme);
     localStorage.setItem("theme", newTheme);
-    console.log("Theme toggled to:", newTheme);
   };
 
   return (
-    <ThemeProviderContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeProviderContext.Provider
+      value={{
+        theme,
+        setTheme,
+        themeOptions,
+      }}
+    >
       {children}
     </ThemeProviderContext.Provider>
   );
