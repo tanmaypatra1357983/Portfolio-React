@@ -69,6 +69,9 @@ export function ThemeProvider({
     
     // Force re-render by updating a data attribute
     document.documentElement.setAttribute('data-theme', resolvedValue);
+    
+    // Add console logging to debug
+    console.log('Theme updated:', { newTheme, resolvedValue });
   };
 
   // Apply theme when it changes
@@ -82,9 +85,21 @@ export function ThemeProvider({
   }, []);
 
   const toggleTheme = () => {
+    console.log('Toggle theme called. Current resolved theme:', resolvedTheme);
     const newTheme = resolvedTheme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
+    
+    // Directly update DOM for immediate feedback
+    const root = window.document.documentElement;
+    root.classList.remove("light", "dark");
+    root.classList.add(newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+    
+    // Save theme preference
     localStorage.setItem(storageKey, newTheme);
+    setTheme(newTheme);
+    setResolvedTheme(newTheme);
+    
+    console.log('Theme toggled to:', newTheme);
   };
 
   const value = {

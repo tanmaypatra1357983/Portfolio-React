@@ -100,13 +100,16 @@ const Header = () => {
           
           {/* Theme Toggle */}
           <button
-            onClick={toggleTheme}
-            className="relative p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-primary/20 hover:text-primary transition-all duration-300 overflow-hidden"
+            onClick={() => {
+              console.log('Header theme toggle button clicked');
+              toggleTheme();
+            }}
+            className="relative p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-primary/20 hover:text-primary transition-all duration-300 overflow-hidden active:scale-95"
             aria-label="Toggle theme"
           >
             <div className="relative z-10">
               {resolvedTheme === "dark" ? (
-                <Sun className="h-5 w-5 transform transition-transform" />
+                <Sun className="h-5 w-5 transform transition-transform animate-pulse" />
               ) : (
                 <Moon className="h-5 w-5 transform transition-transform" />
               )}
@@ -117,7 +120,6 @@ const Header = () => {
                 transform: 'scale(0)',
                 opacity: 0,
                 animation: 'theme-ripple 0.5s ease forwards',
-                animationPlayState: 'paused'
               }}
             ></div>
           </button>
@@ -175,12 +177,15 @@ const Header = () => {
           >
             <span className="text-gray-700 dark:text-gray-200">Theme</span>
             <button
-              onClick={toggleTheme}
-              className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-primary/20 hover:text-primary transition-colors"
+              onClick={() => {
+                console.log('Mobile theme toggle button clicked');
+                toggleTheme();
+              }}
+              className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-primary/20 hover:text-primary transition-colors active:scale-95"
               aria-label="Toggle theme"
             >
               {resolvedTheme === "dark" ? (
-                <Sun className="h-5 w-5" />
+                <Sun className="h-5 w-5 animate-pulse" />
               ) : (
                 <Moon className="h-5 w-5" />
               )}
