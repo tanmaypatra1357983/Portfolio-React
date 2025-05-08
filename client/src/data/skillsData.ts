@@ -1,74 +1,82 @@
 export const skillsData = {
   frontend: [
     {
-      name: "React & React Native",
-      percentage: 95
+      name: "HTML/CSS",
+      percentage: 88
     },
     {
-      name: "TypeScript",
-      percentage: 90
-    },
-    {
-      name: "TailwindCSS",
+      name: "JavaScript",
       percentage: 85
     },
     {
-      name: "Next.js",
+      name: "React.js",
+      percentage: 85
+    },
+    {
+      name: "Bootstrap",
       percentage: 80
     },
     {
-      name: "UI/UX Design",
+      name: "Tailwind CSS",
       percentage: 75
     }
   ],
   backend: [
     {
-      name: "Node.js & Express",
+      name: "Java",
       percentage: 90
     },
-    {
-      name: "PostgreSQL",
-      percentage: 85
-    },
-    {
-      name: "GraphQL",
-      percentage: 80
-    },
-    {
-      name: "AWS Services",
-      percentage: 75
-    },
-    {
-      name: "Docker & Kubernetes",
-      percentage: 70
-    }
-  ],
-  machineLearning: [
     {
       name: "Python",
       percentage: 85
     },
     {
-      name: "TensorFlow & PyTorch",
-      percentage: 70
+      name: "C",
+      percentage: 80
     },
     {
-      name: "Data Analysis & Visualization",
-      percentage: 75
+      name: "MongoDB",
+      percentage: 78
+    },
+    {
+      name: "Express.js",
+      percentage: 80
+    }
+  ],
+  machineLearning: [
+    {
+      name: "TensorFlow",
+      percentage: 82
+    },
+    {
+      name: "Pandas",
+      percentage: 88
+    },
+    {
+      name: "Machine Learning",
+      percentage: 80
+    },
+    {
+      name: "Data Analysis",
+      percentage: 85
     }
   ],
   tools: [
     {
       name: "Git & GitHub",
-      percentage: 95
+      percentage: 92
     },
     {
-      name: "Testing (Jest, Cypress)",
+      name: "VS Code",
+      percentage: 90
+    },
+    {
+      name: "Data Structures",
       percentage: 85
     },
     {
-      name: "Agile & Scrum",
-      percentage: 90
+      name: "Algorithms",
+      percentage: 83
     }
   ]
 };

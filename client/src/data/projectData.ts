@@ -1,50 +1,42 @@
 export const projectsData = [
   {
-    title: "ShopSmart E-commerce",
-    description: "A full-featured e-commerce platform with secure payments, real-time inventory, and personalized recommendations.",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
-    technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
-    codeUrl: "https://github.com",
-    liveUrl: "https://project-demo.com"
+    title: "Finance Prediction Model",
+    description: "ML-based financial forecasting model that analyzes market trends and predicts stock price movements using historical data.",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+    technologies: ["Python", "TensorFlow", "Pandas", "Finance", "ML"],
+    codeUrl: "https://github.com/financeML",
+    liveUrl: "https://example.com/demo"
   },
   {
-    title: "InsightDash Analytics",
-    description: "An interactive analytics dashboard with real-time data processing and advanced visualization tools.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
-    technologies: ["TypeScript", "D3.js", "Express", "MongoDB"],
-    codeUrl: "https://github.com",
-    liveUrl: "https://project-demo.com"
+    title: "MERN Todo App",
+    description: "Full-stack task manager with CRUD operations and persistent storage using MongoDB, Express, React, and Node.js.",
+    image: "https://images.unsplash.com/photo-1517842645767-c639042777db?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+    technologies: ["React", "Node.js", "MongoDB", "Express"],
+    codeUrl: "https://github.com/ToDo",
+    liveUrl: "https://example.com/todo-demo"
   },
   {
-    title: "FitPro AI Trainer",
-    description: "A fitness companion app with AI-powered workout analysis, personalized routines, and progress tracking.",
-    image: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
-    technologies: ["React Native", "TensorFlow", "Firebase", "GraphQL"],
-    codeUrl: "https://github.com",
-    liveUrl: "https://project-demo.com"
+    title: "Weather App",
+    description: "Full-stack web application to fetch and display real-time weather data using the OpenWeatherMap API.",
+    image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+    technologies: ["React", "Express", "API Integration", "JavaScript"],
+    codeUrl: "https://github.com/Weather",
+    liveUrl: "https://example.com/weather-demo"
   },
   {
-    title: "EcoTrack Impact Calculator",
-    description: "An environmental impact calculator that helps users measure and reduce their carbon footprint.",
-    image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
-    technologies: ["Vue.js", "Node.js", "D3.js", "PostgreSQL"],
-    codeUrl: "https://github.com",
-    liveUrl: "https://project-demo.com"
+    title: "DSA Visualizer",
+    description: "Interactive web application that visualizes data structures and algorithms to help understand complex CS concepts.",
+    image: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+    technologies: ["JavaScript", "Data Structures", "Algorithms", "HTML/CSS"],
+    codeUrl: "https://github.com/dsa-visualizer",
+    liveUrl: "https://example.com/dsa-demo"
   },
   {
-    title: "LingoAI Language Tutor",
-    description: "An AI-powered language learning platform with personalized lessons and conversation practice.",
-    image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
-    technologies: ["React", "Python", "TensorFlow", "AWS"],
-    codeUrl: "https://github.com",
-    liveUrl: "https://project-demo.com"
-  },
-  {
-    title: "CollabSpace Work Hub",
-    description: "A team collaboration platform with real-time document editing, task management, and communication tools.",
-    image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
-    technologies: ["Next.js", "Socket.io", "Express", "MongoDB"],
-    codeUrl: "https://github.com",
-    liveUrl: "https://project-demo.com"
+    title: "LLM-Powered Assistant (In Progress)",
+    description: "Building an intelligent assistant leveraging large language models to provide contextual responses and assist with complex tasks.",
+    image: "https://images.unsplash.com/photo-1677442135136-760c813a535f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+    technologies: ["Python", "LangChain", "NLP", "AI"],
+    codeUrl: "https://github.com/llm-assistant",
+    liveUrl: ""
   }
 ];

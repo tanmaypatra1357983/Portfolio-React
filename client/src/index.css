@@ -55,6 +55,7 @@
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    scroll-behavior: smooth;
   }
 }
 
@@ -83,12 +84,100 @@
   @apply absolute top-0 left-0 h-full bg-primary rounded-full transition-all duration-1000 ease-in-out;
 }
 
+/* Advanced animations */
+.slide-in-from-left {
+  @apply opacity-0 -translate-x-10;
+  animation: slide-in-left 0.8s ease forwards;
+}
+
+.slide-in-from-right {
+  @apply opacity-0 translate-x-10;
+  animation: slide-in-right 0.8s ease forwards;
+}
+
+.slide-in-from-bottom {
+  @apply opacity-0 translate-y-10;
+  animation: slide-in-bottom 0.8s ease forwards;
+}
+
+.scale-in {
+  @apply opacity-0 scale-95;
+  animation: scale-in 0.8s ease forwards;
+}
+
+.fade-in {
+  @apply opacity-0;
+  animation: fade-in 0.8s ease forwards;
+}
+
+.scroll-compress {
+  transform-origin: top;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.section-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes slide-in-left {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-bottom {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Staggered animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Reset animations on scroll direction change */
+.reset-animation {
+  animation: none !important;
+  opacity: 0 !important;
+}
+
 @media (prefers-reduced-motion) {
   .animate-slide-up,
   .animate-fade-in,
   .hover-lift:hover,
   .project-card:hover,
-  .progress-bar-fill {
-    @apply animate-none transition-none transform-none;
+  .progress-bar-fill,
+  .slide-in-from-left,
+  .slide-in-from-right,
+  .slide-in-from-bottom,
+  .scale-in,
+  .fade-in {
+    @apply animate-none transition-none transform-none opacity-100;
   }
 }

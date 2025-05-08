@@ -2,28 +2,28 @@ import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
 import React from "react";
 
 export const aboutData = {
-  intro: "I'm a full-stack developer with 5+ years of experience crafting elegant web solutions. My journey began with a curiosity about how things work, which led me to explore computer science and eventually specialize in modern web technologies.",
-  passion: "I'm passionate about creating intuitive user experiences that solve real problems. My expertise lies in React, TypeScript, and Node.js ecosystems, with a growing interest in machine learning applications.",
-  experience: "5+ years",
-  projects: "30",
-  education: "M.S. Computer Science",
-  location: "San Francisco, CA",
+  intro: "I'm a passionate Software Developer and Machine Learning enthusiast with a strong foundation in computer science fundamentals. I enjoy building creative solutions and exploring new technologies.",
+  passion: "I believe in hands-on learning and practical application of concepts. I'm constantly challenging myself with new projects and problem-solving tasks.",
+  experience: "1+ year",
+  projects: "5+",
+  education: "B.Tech CSE",
+  location: "Bangalore, India",
   details: [
     {
-      question: "What I do?",
-      answer: "I build modern web applications with React, TypeScript, and Node.js. I focus on creating clean, maintainable code and intuitive user experiences."
+      question: "Who am I?",
+      answer: "I'm a Computer Science student at KIIT University with a focus on software development and machine learning. I love creating applications that solve real-world problems."
     },
     {
-      question: "What drives me?",
-      answer: "I'm driven by solving complex problems through code. The constant evolution of technology keeps me engaged and excited to learn new things every day."
+      question: "What do I do?",
+      answer: "I develop web applications, work on machine learning projects, and continuously expand my knowledge in software engineering and computer science."
     },
     {
-      question: "My approach to work",
-      answer: "I believe in a collaborative approach, where communication and teamwork lead to the best results. I'm detail-oriented but always keep the bigger picture in mind."
+      question: "My approach to learning",
+      answer: "I believe in hands-on learning and practical application of concepts. I'm constantly challenging myself with new projects and problem-solving tasks."
     },
     {
-      question: "Future goals",
-      answer: "I aim to deepen my expertise in AI/ML applications and contribute to open-source projects that make a positive impact on how people use technology."
+      question: "Where am I headed?",
+      answer: "I aim to become a versatile full-stack developer with expertise in AI and machine learning, creating innovative solutions that make a positive impact."
     }
   ]
 };

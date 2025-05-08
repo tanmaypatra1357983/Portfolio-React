@@ -1,47 +1,87 @@
 import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, Heart, Mail, ArrowRight } from "lucide-react";
+import { Briefcase, GraduationCap, Heart, Mail, ArrowRight, Github } from "lucide-react";
 import { aboutData } from "@/data/aboutData";
 import { educationData, internshipData, certificationData, hackathonData } from "@/data/educationData";
+import { useScrollAnimation, useScrollCompression } from "@/hooks/use-scroll-animation";
+import { useEffect, useRef } from "react";
 
 const About = () => {
+  const { ref: sectionRef, isVisible: isSectionVisible } = useScrollAnimation<HTMLDivElement>({
+    threshold: 0.1,
+    once: false
+  });
+
+  const { ref: bioRef, isVisible: isBioVisible, isCompressed } = useScrollCompression<HTMLDivElement>({
+    threshold: 0.1,
+  });
+
+  // Reset animation on scroll
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const animatedItemsRef = useRef<HTMLDivElement[]>([]);
+  
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1
+    };
+    
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-on-scroll");
+          entry.target.classList.remove("reset-animation");
+        } else {
+          // Reset animation when element leaves viewport
+          entry.target.classList.remove("animate-on-scroll");
+          entry.target.classList.add("reset-animation");
+        }
+      });
+    };
+    
+    const observer = new IntersectionObserver(handleIntersection, observerOptions);
+    
+    if (animatedItemsRef.current) {
+      animatedItemsRef.current.forEach(item => {
+        if (item) observer.observe(item);
+      });
+    }
+    
+    return () => {
+      if (animatedItemsRef.current) {
+        animatedItemsRef.current.forEach(item => {
+          if (item) observer.unobserve(item);
+        });
+      }
+    };
+  }, []);
+
   return (
     <section
       id="about"
-      className="py-20 bg-gray-100 dark:bg-gray-800 overflow-hidden"
+      ref={sectionRef}
+      className="py-20 bg-gray-100 dark:bg-gray-800 overflow-hidden section-wrapper"
     >
       <div className="container mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-3xl md:text-4xl font-bold mb-16 text-center gradient-text"
-        >
+        <h2 className={`text-3xl md:text-4xl font-bold mb-16 text-center gradient-text ${isSectionVisible ? 'slide-in-from-bottom' : 'opacity-0'}`}>
           About Me
-        </motion.h2>
+        </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
+        <div 
+          ref={bioRef}
+          className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isCompressed ? 'scale-95 opacity-50' : ''} transition-all duration-500`}
+        >
+          <div className={`${isBioVisible ? 'slide-in-from-left' : 'opacity-0'}`}>
             <img
               src="https://images.unsplash.com/photo-1580518324671-c2f0833a3af3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=1000&q=80"
               alt="Professional headshot"
               className="w-full h-auto rounded-2xl shadow-xl mx-auto max-w-md"
             />
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
+          <div className={`${isBioVisible ? 'slide-in-from-right' : 'opacity-0'}`}>
             <h3 className="text-2xl font-bold mb-6">
-              Hello, I'm <span className="gradient-text">Alex</span>
+              Hello, I'm <span className="gradient-text">ME</span>
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-6 text-lg">
               {aboutData.intro}
@@ -51,7 +91,7 @@ const About = () => {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-              <div className="flex items-start">
+              <div className="flex items-start slide-in-from-left stagger-1">
                 <div className="bg-primary/10 dark:bg-primary/20 p-2 rounded-full mr-4">
                   <Briefcase className="h-6 w-6 text-primary" />
                 </div>
@@ -61,7 +101,7 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="flex items-start">
+              <div className="flex items-start slide-in-from-left stagger-2">
                 <div className="bg-primary/10 dark:bg-primary/20 p-2 rounded-full mr-4">
                   <Heart className="h-6 w-6 text-primary" />
                 </div>
@@ -71,7 +111,7 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="flex items-start">
+              <div className="flex items-start slide-in-from-left stagger-3">
                 <div className="bg-primary/10 dark:bg-primary/20 p-2 rounded-full mr-4">
                   <GraduationCap className="h-6 w-6 text-primary" />
                 </div>
@@ -81,7 +121,7 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="flex items-start">
+              <div className="flex items-start slide-in-from-left stagger-4">
                 <div className="bg-primary/10 dark:bg-primary/20 p-2 rounded-full mr-4">
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
@@ -94,7 +134,7 @@ const About = () => {
 
             <a
               href="#contact"
-              className="inline-flex items-center text-primary dark:text-primary hover:text-primary-dark dark:hover:text-primary-dark font-medium transition-colors"
+              className="inline-flex items-center text-primary dark:text-primary hover:text-primary-dark dark:hover:text-primary-dark font-medium transition-colors slide-in-from-left stagger-5"
               onClick={(e) => {
                 e.preventDefault();
                 const contactSection = document.getElementById("contact");
@@ -106,69 +146,41 @@ const About = () => {
               Let's work together
               <ArrowRight className="ml-2 h-5 w-5" />
             </a>
-          </motion.div>
+          </div>
         </div>
         
         {/* Education Timeline */}
-        <div className="mt-20">
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="text-2xl font-bold mb-10 text-center"
-          >
+        <div className="mt-20" ref={timelineRef}>
+          <h3 className={`text-2xl font-bold mb-10 text-center fade-in ${isSectionVisible ? 'animate-on-scroll' : ''}`}>
             Education & Experience
-          </motion.h3>
+          </h3>
           
-          <motion.h4
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="text-xl font-semibold mb-6 ml-4"
-          >
+          <h4 className="text-xl font-semibold mb-6 ml-4 slide-in-from-left">
             Education
-          </motion.h4>
+          </h4>
           <div className="relative border-l border-primary/30 ml-4 md:ml-0 md:pl-0 pl-8 mb-12">
             {educationData.map((item, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{
-                  opacity: 0,
-                  x: index % 2 === 0 ? 50 : -50,
-                  y: 30,
-                }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                transition={{
-                  duration: 0.7,
-                  delay: index * 0.2,
-                  type: "spring",
-                }}
-                viewport={{ once: true, margin: "-100px" }}
+                ref={(el) => (el && (animatedItemsRef.current[index] = el))}
                 className={`mb-12 ${
                   index % 2 === 0
-                    ? "md:ml-[50%] md:pl-12"
-                    : "md:mr-[50%] md:pr-12 md:text-right"
-                }`}
+                    ? "md:ml-[50%] md:pl-12 slide-in-from-right"
+                    : "md:mr-[50%] md:pr-12 md:text-right slide-in-from-left"
+                } reset-animation`}
+                style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.2 + 0.3,
-                  }}
-                  viewport={{ once: true }}
+                <div
                   className={`absolute top-0 ${
                     index % 2 === 0
                       ? "md:left-[50%] -left-[17px]"
                       : "md:right-[50%] -left-[17px] md:left-auto"
-                  } w-9 h-9 rounded-full bg-primary flex items-center justify-center`}
+                  } w-9 h-9 rounded-full bg-primary flex items-center justify-center scale-in`}
+                  style={{ animationDelay: `${index * 0.2 + 0.3}s` }}
                 >
                   <GraduationCap className="h-5 w-5 text-white" />
-                </motion.div>
-                <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
+                </div>
+                <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
                   <span className="text-primary text-sm font-medium">
                     {item.period}
                   </span>
@@ -178,69 +190,63 @@ const About = () => {
                     {item.description}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
           
           {/* Professional Experience */}
-          <motion.h4
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="text-xl font-semibold mb-6 ml-4"
-          >
+          <h4 className="text-xl font-semibold mb-6 ml-4 slide-in-from-left">
             Experience
-          </motion.h4>
+          </h4>
           <div className="relative border-l border-primary/30 ml-4 md:ml-0 md:pl-0 pl-8 mb-12">
             {internshipData.map((item, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{
-                  opacity: 0,
-                  x: index % 2 === 0 ? 50 : -50,
-                  y: 30,
-                }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                transition={{
-                  duration: 0.7,
-                  delay: index * 0.2,
-                  type: "spring",
-                }}
-                viewport={{ once: true, margin: "-100px" }}
+                ref={(el) => (el && (animatedItemsRef.current[educationData.length + index] = el))}
                 className={`mb-12 ${
                   index % 2 === 0
-                    ? "md:ml-[50%] md:pl-12"
-                    : "md:mr-[50%] md:pr-12 md:text-right"
-                }`}
+                    ? "md:ml-[50%] md:pl-12 slide-in-from-right"
+                    : "md:mr-[50%] md:pr-12 md:text-right slide-in-from-left"
+                } reset-animation`}
+                style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.2 + 0.3,
-                  }}
-                  viewport={{ once: true }}
+                <div
                   className={`absolute top-0 ${
                     index % 2 === 0
                       ? "md:left-[50%] -left-[17px]"
                       : "md:right-[50%] -left-[17px] md:left-auto"
-                  } w-9 h-9 rounded-full bg-primary flex items-center justify-center`}
+                  } w-9 h-9 rounded-full bg-primary flex items-center justify-center scale-in`}
+                  style={{ animationDelay: `${index * 0.2 + 0.3}s` }}
                 >
                   <Briefcase className="h-5 w-5 text-white" />
-                </motion.div>
-                <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md">
+                </div>
+                <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
                   <span className="text-primary text-sm font-medium">
                     {item.period}
                   </span>
                   <h5 className="text-lg font-bold mt-1">{item.title}</h5>
                   <p className="text-muted-foreground">{item.company}</p>
+                  <div className="flex items-center mt-2">
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">
+                      <span className="font-semibold">Location:</span> {item.location}
+                    </p>
+                    {item.githubUrl && (
+                      <a 
+                        href={item.githubUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="ml-4 text-primary hover:text-primary-dark transition-colors flex items-center text-sm"
+                      >
+                        <Github className="h-4 w-4 mr-1" />
+                        GitHub
+                      </a>
+                    )}
+                  </div>
                   <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                     {item.description}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
