@@ -164,12 +164,14 @@ const Projects = () => {
         </div>
       </div>
       
-      <style jsx>{`
-        .animate-card {
-          opacity: 1 !important;
-          transform: translate(0, 0) !important;
-        }
-      `}</style>
+      <style>
+        {`
+          .animate-card {
+            opacity: 1 !important;
+            transform: translate(0, 0) !important;
+          }
+        `}
+      </style>
     </section>
   );
 };
