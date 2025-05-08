@@ -26,12 +26,12 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     if (savedTheme === "dark" || savedTheme === "light") {
       return savedTheme;
     }
-    
+
     // If no saved preference, use system preference
     if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
       return "dark";
     }
-    
+
     // Default to light
     return "light";
   });
