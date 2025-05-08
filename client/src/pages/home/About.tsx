@@ -249,6 +249,83 @@ const About = () => {
               </div>
             ))}
           </div>
+          
+          {/* Certifications */}
+          <h4 className="text-xl font-semibold mb-6 ml-4 slide-in-from-left heading-float mt-12">
+            Certifications
+          </h4>
+          <div className="relative border-l border-primary/30 ml-4 md:ml-0 md:pl-0 pl-8 mb-12">
+            {certificationData.map((item, index) => (
+              <div
+                key={index}
+                ref={(el) => (el && (animatedItemsRef.current[educationData.length + internshipData.length + index] = el))}
+                className={`mb-12 ${
+                  index % 2 === 0
+                    ? "md:ml-[50%] md:pl-12 slide-in-from-right"
+                    : "md:mr-[50%] md:pr-12 md:text-right slide-in-from-left"
+                } reset-animation`}
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div
+                  className={`absolute top-0 ${
+                    index % 2 === 0
+                      ? "md:left-[50%] -left-[17px]"
+                      : "md:right-[50%] -left-[17px] md:left-auto"
+                  } w-9 h-9 rounded-full bg-primary flex items-center justify-center scale-in`}
+                  style={{ animationDelay: `${index * 0.2 + 0.3}s` }}
+                >
+                  <GraduationCap className="h-5 w-5 text-white" />
+                </div>
+                <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                  <span className="text-primary text-sm font-medium">
+                    {item.year}
+                  </span>
+                  <h5 className="text-lg font-bold mt-1">{item.title}</h5>
+                  <p className="text-muted-foreground">{item.organization}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Hackathons */}
+          <h4 className="text-xl font-semibold mb-6 ml-4 slide-in-from-left heading-float mt-12">
+            Hackathons
+          </h4>
+          <div className="relative border-l border-primary/30 ml-4 md:ml-0 md:pl-0 pl-8 mb-12">
+            {hackathonData.map((item, index) => (
+              <div
+                key={index}
+                ref={(el) => (el && (animatedItemsRef.current[educationData.length + internshipData.length + certificationData.length + index] = el))}
+                className={`mb-12 ${
+                  index % 2 === 0
+                    ? "md:ml-[50%] md:pl-12 slide-in-from-right"
+                    : "md:mr-[50%] md:pr-12 md:text-right slide-in-from-left"
+                } reset-animation`}
+                style={{ animationDelay: `${index * 0.2}s` }}
+              >
+                <div
+                  className={`absolute top-0 ${
+                    index % 2 === 0
+                      ? "md:left-[50%] -left-[17px]"
+                      : "md:right-[50%] -left-[17px] md:left-auto"
+                  } w-9 h-9 rounded-full bg-primary flex items-center justify-center scale-in`}
+                  style={{ animationDelay: `${index * 0.2 + 0.3}s` }}
+                >
+                  <Briefcase className="h-5 w-5 text-white" />
+                </div>
+                <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                  <span className="text-primary text-sm font-medium">
+                    {item.year}
+                  </span>
+                  <h5 className="text-lg font-bold mt-1">{item.name}</h5>
+                  <p className="text-muted-foreground">{item.project}</p>
+                  <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                    {item.position}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
