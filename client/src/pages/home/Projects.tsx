@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { projectsData } from "@/data/projectData";
-import { Code, ExternalLink, ArrowRight } from "lucide-react";
+import { Code, ExternalLink } from "lucide-react";
 import { useScrollAnimation, useScrollCompression } from "@/hooks/use-scroll-animation";
 import { useParallaxScroll } from "@/hooks/use-parallax-scroll";
 import { useEffect, useRef, useState } from "react";
@@ -149,16 +149,6 @@ const Projects = () => {
               total={projectsData.length}
             />
           ))}
-        </div>
-        
-        <div className={`text-center mt-16 ${isSectionVisible ? 'fade-in stagger-5' : 'opacity-0'}`}>
-          <a
-            href="#"
-            className="inline-flex items-center text-primary hover:text-primary-dark dark:hover:text-primary-dark font-medium transition-colors text-lg hover-lift"
-          >
-            View All Projects
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </a>
         </div>
       </div>
     </section>
