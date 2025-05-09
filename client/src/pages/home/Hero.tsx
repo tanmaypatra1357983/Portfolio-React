@@ -81,7 +81,7 @@ const Hero = () => {
             <div className="relative flex items-center justify-center">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent rounded-2xl blur-3xl opacity-30 animate-pulse"></div>
               <img
-                src="client/public/assets/Laptop.png"
+                src="/assets/Laptop.png"
                 alt="Professional developer workspace"
                 className="relative w-full h-auto max-w-xl mx-auto rounded-2xl shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500 border-8 border-white dark:border-gray-800"
               />
