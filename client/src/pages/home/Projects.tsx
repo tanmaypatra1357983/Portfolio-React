@@ -86,9 +86,9 @@ const ProjectCard = ({
               {tech}
             </span>
           ))}
-          {project.technologies.length > 8 && (
+          {project.technologies.length > 4 && (
             <span className="px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs rounded-full">
-              +{project.technologies.length - 8} more
+              +{project.technologies.length - 4} more
             </span>
           )}
         </div>
