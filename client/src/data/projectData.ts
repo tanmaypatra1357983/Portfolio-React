@@ -20,43 +20,40 @@ export const projectsData = [
     liveUrl: "https://yourdomain.com/rainfall-prediction",
   },
   {
-    title: "Portfolio Website",
-    description:
-      "A modern, responsive portfolio built with React and Tailwind CSS showcasing projects, skills, and contact details with dark mode and animations.",
-    image:
-      "/assets/Portfolio.png",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    codeUrl: "https://github.com/yourusername/portfolio",
+   title: "Chat Application (Under Development)",
+   description: "A real-time chat app with user authentication, chat rooms, and instant messaging using MERN stack and Socket.IO.",
+   image: "/assets/chat-app.jpg",
+   technologies: ["MongoDB", "Express", "React", "Node.js", "Socket.IO"],
+   codeUrl: "https://github.com/TanmayaPatra369/Chat-Application.git",
+   liveUrl: "https://yourchatappdomain.com",
+
+  },
+  
+  {
+    title: "YouTube Sentiment Analysis",
+    description: "A web app that uses an LSTM-based deep learning model to analyze the sentiment of YouTube video comments in real time.",
+    image: "/assets/youtube-sentiment.jpg",
+    technologies: ["Python", "TensorFlow", "LSTM", "Flask", "NLP"],
+    codeUrl: "https://github.com/TanmayaPatra369/Youtube-Setiment-Analyzer.git",
+    liveUrl: "https://youtube-setiment-analyzer.onrender.com/",
+  },
+  
+  {
+    title: "Incident Tracker - Web App",
+    description: "An incident tracker interface, featuring a dashboard or list view of incidents with details such as status, priority, and timestamps. The design is organized and user-friendly, intended for monitoring and managing incidents efficiently.",
+    image: "https://images.unsplash.com/photo-1581092795360-0f0ec1ef4909?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+    technologies: ["React", "JavaScript", "CSS", "Incident Management", "UI/UX"],
+    codeUrl: "https://github.com/TanmayaPatra369/Incident-Response-Tracker.git",
+    liveUrl: "https://incidentresponsetrackertanmay.netlify.app/",
+  },
+  
+  {
+    title: "Resume Builder Using AI",
+    description: "An AI-powered resume assistant that analyzes input and generates tailored content using OpenAI APIs for sections like summary, skills, and experience.",
+    image: "/assets/resume-ai.jpg",
+    technologies: ["Python", "OpenAI API", "LangChain", "NLP", "LLM"],
+    codeUrl: "https://github.com/TanmayaPatra369/ResumeAI.git",
     liveUrl: "https://yourdomain.com",
-  },
-  {
-    title: "Job Tracker",
-    description:
-      "A full-stack MERN web application to track job applications with fields for company, status, notes, salary, deadlines, and filter/search functionality.",
-    image:
-      "/assets/Job.png",
-    technologies: ["MongoDB", "Express", "React", "Node.js", "Tailwind CSS"],
-    codeUrl: "https://github.com/yourusername/job-tracker",
-    liveUrl: "https://yourdomain.com/job-tracker",
-  },
-  {
-    title: "Customer Churn Prediction - Dashboard",
-    description:
-      "/assets/Chrun.png",
-    image:
-      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
-    technologies: ["Python", "TensorFlow", "LSTM", "Pandas", "Finance", "ML"],
-    codeUrl: "https://github.com/yourusername/finance-forecast-ai",
-    liveUrl: "https://yourdomain.com/finance-forecast",
-  },
-  {
-    title: "LLM-Powered Assistant",
-    description:
-      "A smart assistant powered by large language models that provides real-time answers, task automation, and content generation using LangChain and OpenAI APIs.",
-    image:
-      "/assets/LLM.png",
-    technologies: ["Python", "LangChain", "OpenAI", "NLP", "LLM"],
-    codeUrl: "https://github.com/yourusername/llm-assistant",
-    liveUrl: "",
+
   },
 ];
