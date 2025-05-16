@@ -5,7 +5,7 @@ export const projectsData = [
       "An interactive tool that visualizes common data structures and algorithms like sorting, searching, trees, and graphs in real-time with animations.",
     image:
       "/assets/DSA.png",
-    technologies: ["JavaScript", "HTML/CSS", "Algorithms", "DSA"],
+    technologies: ["JavaScript", "HTML/CSS", "Algorithms", "DSA", "Bubble Sort", "Selection Sort", "Insertion Sort", "Merge Sort", "Quick Sort", "Heap Sort", "Counting Sort"],
     codeUrl: "https://github.com/TanmayaPatra369/Sorting-Visualizer.git",
     liveUrl: "https://steady-khapse-fdc88a.netlify.app",
   },
@@ -41,7 +41,7 @@ export const projectsData = [
   {
     title: "Incident Tracker - Web App",
     description: "An incident tracker interface, featuring a dashboard or list view of incidents with details such as status, priority, and timestamps. The design is organized and user-friendly, intended for monitoring and managing incidents efficiently.",
-    image: "https://images.unsplash.com/photo-1581092795360-0f0ec1ef4909?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=500&q=80",
+    image: "/assets/Incident-Tracker.jpg",
     technologies: ["React", "JavaScript", "CSS", "Incident Management", "UI/UX"],
     codeUrl: "https://github.com/TanmayaPatra369/Incident-Response-Tracker.git",
     liveUrl: "https://incidentresponsetrackertanmay.netlify.app/",
