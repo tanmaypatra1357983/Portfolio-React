@@ -13,8 +13,6 @@ const Header = () => {
   // Use parallax scroll effect
   useParallaxScroll();
 
-  // Only using Electric Blue theme now
-
   // Handle scroll to update active navigation link
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +22,7 @@ const Header = () => {
         "skills",
         "technologies",
         "projects",
+        "blog",
         "contact",
       ];
       const scrollPosition = window.scrollY;
@@ -89,6 +88,7 @@ const Header = () => {
             "skills",
             "technologies",
             "projects",
+            "blog",
             "contact",
           ].map((section) => (
             <a
@@ -148,6 +148,7 @@ const Header = () => {
             "skills",
             "technologies",
             "projects",
+            "blog",
             "contact",
           ].map((section, index) => (
             <a
