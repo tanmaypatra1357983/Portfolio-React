@@ -5,7 +5,17 @@ import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        'script-src': ["'self'", "'unsafe-inline'"],
+        'style-src': ["'self'", "'unsafe-inline'"],
+      },
+    },
+  })
+);
 app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -57,8 +67,8 @@ app.use((req, res, next) => {
   }
 
   // Use env variables for deployment platforms
-  const PORT = process.env.PORT || 5000;
-  const HOST = process.env.HOST || "0.0.0.0";
+  const PORT = parseInt(process.env.PORT || "5000", 10);
+  const HOST = process.env.HOST || "localhost";
 
   server.listen(PORT, HOST, () => {
     log(`Server running at http://${HOST}:${PORT}`);

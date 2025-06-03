@@ -6,7 +6,7 @@ export const blogData = [
     readTime: "5 min read",
     category: "Technology",
     image: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg",
-    link: "#"
+    link: "https://unicornplatform.com/blog/the-future-of-ai-in-web-development/"
   },
   {
     title: "Understanding React Server Components",
@@ -15,7 +15,7 @@ export const blogData = [
     readTime: "7 min read",
     category: "Development",
     image: "https://images.pexels.com/photos/11035471/pexels-photo-11035471.jpeg",
-    link: "#"
+    link: "https://unicornplatform.com/blog/understanding-react-server-components/"
   },
   {
     title: "Machine Learning for Beginners",
@@ -24,7 +24,7 @@ export const blogData = [
     readTime: "10 min read",
     category: "AI & ML",
     image: "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg",
-    link: "#"
+    link: "https://unicornplatform.com/blog/the-future-of-ai-and-web-development/"
   },
   {
     title: "The Rise of Web3 Technologies",
@@ -33,7 +33,7 @@ export const blogData = [
     readTime: "6 min read",
     category: "Blockchain",
     image: "https://images.pexels.com/photos/730547/pexels-photo-730547.jpeg",
-    link: "#"
+    link: "https://unicornplatform.com/blog/the-rise-of-web3-technologies/"
   },
   {
     title: "Building Scalable Microservices",
@@ -42,7 +42,7 @@ export const blogData = [
     readTime: "8 min read",
     category: "Architecture",
     image: "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg",
-    link: "#"
+    link: "https://unicornplatform.com/blog/building-scalable-microservices/"   
   },
   {
     title: "The Impact of 5G on Web Applications",
@@ -51,6 +51,6 @@ export const blogData = [
     readTime: "4 min read",
     category: "Technology",
     image: "https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg",
-    link: "#"
+    link: "https://unicornplatform.com/blog/the-impact-of-5g-on-web-applications/"
   }
 ];
